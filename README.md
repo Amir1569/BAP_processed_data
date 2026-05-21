@@ -1,61 +1,61 @@
 # BAP_processed_data
-This repository contains the preprocessed data of the cities Zurich, Cagliari and Luzern of the UTD19 dataset. The preprocessed data can be used to train multiple models (LSTM, MegaCRN, Graph Wavenet, STDN and HimNet).
 
-The source code is not included in this repository. This repository only contains the processed data files that are too large to include directly in the main code submission.
+This repository provides the preprocessed data files used for the experiments in the BAP project.
+
+The source code is not included in this repository. The main code is provided separately. This repository only serves as a download location for the processed data files, because they are too large to include directly in the main code submission.
+
+## Download
+
+The processed data is available as a ZIP file in the GitHub Releases section.
+
+Download the latest release asset:
+
+```text
+BAP_processed_data.zip
+```
+
+After downloading, extract the ZIP file. The extracted folder should contain:
+
+```text
+preprocessed_data/
+├── cagliari_data_processed/
+├── luzern_data_processed/
+└── zurich_data_processed/
+```
 
 ## Cities
 
-The processed data is provided for three cities:
+Processed data is provided for:
 
 - Zurich
 - Cagliari
 - Luzern
 
-Each city folder contains the data required by each model.
+The data is already cleaned, split and formatted for the implemented models.
+
+## Repository structure inside the ZIP
+
+Each city folder contains model-specific data:
 
 ```text
-preprocessed_data/
-├── cagliari_data_processed/
-├── luzern_data_processed/
-└── zurich_data_processed/
-
-These files are needed to train or evaluate the implemented models:
-Historic Average, LSTM, Graph WaveNet, MegaCRN, HimNet and STDN.
-
-## Repository structure
-
-```text
-preprocessed_data/
-├── cagliari_data_processed/
-│   ├── graphwavenet/
-│   ├── megacrn/
-│   ├── himnet/
-│   ├── stdn/
-│   └── historic_average/
-├── luzern_data_processed/
-│   ├── graphwavenet/
-│   ├── megacrn/
-│   ├── himnet/
-│   ├── stdn/
-│   └── historic_average/
-└── zurich_data_processed/
-    ├── graphwavenet/
-    ├── megacrn/
-    ├── himnet/
-    ├── stdn/
-    └── historic_average/
+<city>_data_processed/
+├── graphwavenet/
+├── megacrn/
+├── himnet/
+├── stdn/
+└── historic_average/
 ```
 
 ## Where to copy the files
 
-After downloading this repository, copy the files into the matching folders of the main `BAP_code` project.
+Copy the downloaded files into the matching folders of the main `BAP_code` project.
 
 ### Graph WaveNet
 
-Copy the files from:
+Copy:
 
 ```text
-<city>_data_processed/graphwavenet/
+preprocessed_data/<city>_data_processed/graphwavenet/
 ```
 
 to:
@@ -75,10 +75,10 @@ adj_mx.pkl
 
 ### MegaCRN
 
-Copy the files from:
+Copy:
 
 ```text
-<city>_data_processed/megacrn/
+preprocessed_data/<city>_data_processed/megacrn/
 ```
 
 to:
@@ -95,14 +95,14 @@ val.npz
 test.npz
 ```
 
-If a city folder also contains a `.parquet` file, keep it in the same folder.
+Some city folders may also contain an additional `.parquet` file. Keep it in the same folder when present.
 
 ### HimNet
 
-Copy the files from:
+Copy:
 
 ```text
-<city>_data_processed/himnet/
+preprocessed_data/<city>_data_processed/himnet/
 ```
 
 to:
@@ -120,10 +120,10 @@ index.npz
 
 ### STDN
 
-Copy the files from:
+Copy:
 
 ```text
-<city>_data_processed/stdn/
+preprocessed_data/<city>_data_processed/stdn/
 ```
 
 to:
@@ -144,21 +144,17 @@ samples_12_12_3.npz
 
 The LSTM baseline uses the same `train.npz`, `val.npz` and `test.npz` files as Graph WaveNet.
 
-The Historic Average baseline also needs the final wide flow matrix. Copy the file from:
+The Historic Average baseline also needs the final wide flow matrix. Copy the `.parquet` file from:
 
 ```text
-<city>_data_processed/historic_average/
+preprocessed_data/<city>_data_processed/historic_average/
 ```
 
-to the path expected by the script, or update the `raw_file` path in:
-
-```text
-BAP_code/implementation_models/historic_average/run_historic_average.py
-```
+to the path expected by the Historic Average script, or update the `raw_file` path in the script.
 
 ## Notes
 
-- City folder names in the main code are uppercase: `ZURICH`, `CAGLIARI`, `LUZERN`.
-- The data is already cleaned, split and formatted for the models.
-- Raw UTD19 files are not included here.
-- Intermediate preprocessing files are not included to keep the repository smaller.
+- Destination city folder names in the main project use uppercase names: `ZURICH`, `CAGLIARI`, `LUZERN`.
+- Raw UTD19 files are not included.
+- Intermediate preprocessing files are not included.
+- The files in this repository are only the processed data files needed to train or evaluate the implemented models.
