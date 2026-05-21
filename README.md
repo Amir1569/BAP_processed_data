@@ -2,7 +2,7 @@
 
 This repository provides the preprocessed data files used for the experiments in the BAP project.
 
-The source code is not included in this repository. The main code is provided separately. This repository only serves as a download location for the processed data files, because they are too large to include directly in the main code submission.
+The source code is not included in this repository. The main code is provided separately. This repository only serves as a download location for the processed data files because they are too large to include directly in the main code submission.
 
 ## Download
 
