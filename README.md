@@ -17,7 +17,7 @@ BAP_processed_data.zip
 After downloading, extract the ZIP file. The extracted folder should contain:
 
 ```text
-preprocessed_data/
+BAP_processed_data/
 ├── cagliari_data_processed/
 ├── luzern_data_processed/
 └── zurich_data_processed/
